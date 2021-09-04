@@ -1,0 +1,31 @@
+services:
+  encode:
+    build:
+      context: app
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ${INPUT_IMAGE}
+        target: /app/image.jpg
+      - type: bind
+        source: ${PWD}
+        target: /app/output
+    environment:
+      - SECRET_DATA=${SECRET_DATA}
+    entrypoint: ["python", "steganography.py", "encode"]
+
+  decode:
+    build:
+      context: app
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ${KEY}
+        target: /app/output/key.key
+      - type: bind
+        source: ${PWD}/steganography.png
+        target: /app/output/steganography.png
+      - type: bind
+        source: ${PWD}
+        target: /app/output
+    entrypoint: ["python", "steganography.py", "decode"]
