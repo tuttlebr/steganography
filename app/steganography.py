@@ -3,6 +3,7 @@ from logging import info, INFO, basicConfig
 import numpy as np
 from os import getenv
 from cryptography.fernet import Fernet
+import re
 import sys
 
 
@@ -14,6 +15,16 @@ basicConfig(
 input_image = "image.jpg"
 output_image = "output/steganography.png"
 secret_data = getenv("SECRET_DATA")
+
+
+def normalize_secret(data):
+    # try:
+    #     data = data.lower()
+    # except:
+    #     1 == 1
+    # data = re.sub("[^a-z0-9 ]+", " ", data).ljust(16, "_")
+
+    return data.ljust(16, "_")
 
 
 def write_key(key_file_name="output/key.key"):
@@ -72,6 +83,7 @@ def encode(image_name, secret_data, key_file_name="output/key.key"):
     # read the image
     image = cv2.imread(image_name)
     info("[*] Encrypting & Encoding data...")
+    secret_data = normalize_secret(secret_data)
     secret_data = encrypt(secret_data, key_file_name).decode()
     # maximum bytes to encode
     n_bytes = image.shape[0] * image.shape[1] * 3 // 8

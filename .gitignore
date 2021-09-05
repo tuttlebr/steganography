@@ -146,3 +146,5 @@ default_save_dir/
 
 *.png
 style_transfer_*.jpg
+
+*.key
