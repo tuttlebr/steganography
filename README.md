@@ -40,6 +40,11 @@ Here is the resulting pixel values (you can check them on your own):
 
 ```bash
 docker-compose up --build encode
+ ⠿ Container steganography-encode-1  Recreated                                                                                           0.1s
+Attaching to steganography-encode-1
+steganography-encode-1  | INFO: 2021-11-26 14:53:47,315 [*] Encrypting & Encoding data...
+steganography-encode-1  | INFO: 2021-11-26 14:53:47,358 [*] Maximum bytes to encode: 524505
+steganography-encode-1 exited with code 0
 ```
 
 Here is what the `encode()` function does:
@@ -54,6 +59,12 @@ Here is what the `encode()` function does:
 
 ```bash
 docker-compose up --build decode
+ ⠿ Container steganography-decode-1  Created                                                                                             0.0s
+Attaching to steganography-decode-1
+steganography-decode-1  | INFO: 2021-11-26 14:53:48,888 [+] Decoding...
+steganography-decode-1  | INFO: 2021-11-26 14:53:53,263 b'i6VSFHWoa5_X2ZSDvu_H9_m2Nn0ZIsh56TodhIw6ESI='
+steganography-decode-1  | INFO: 2021-11-26 14:53:53,330 b'hello, friend.__'
+steganography-decode-1 exited with code 0
 ```
 
 Regarding the `decode()` fn, we read the image and then get all the last bits of every pixel of the image. After that, we keep decoding until we see the previously defined stopping criteria.

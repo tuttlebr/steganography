@@ -155,8 +155,9 @@ if __name__ == "__main__":
         # save the output image (encoded image)
         cv2.imwrite(output_image, encoded_image)
     elif sys.argv[1] == "decode":
-        decode(
+        decoded = decode(
             output_image,
         )
+        info(decoded)
     else:
         info("Input arg must be one of decode, or encode.")

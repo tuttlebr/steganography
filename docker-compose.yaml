@@ -5,13 +5,13 @@ services:
       dockerfile: Dockerfile
     volumes:
       - type: bind
-        source: ${INPUT_IMAGE}
+        source: ./app/image.jpg
         target: /app/image.jpg
       - type: bind
-        source: ${PWD}
+        source: .
         target: /app/output
     environment:
-      - SECRET_DATA=${SECRET_DATA}
+      - SECRET_DATA=hello, friend.
     entrypoint: ["python", "steganography.py", "encode"]
 
   decode:
@@ -20,12 +20,12 @@ services:
       dockerfile: Dockerfile
     volumes:
       - type: bind
-        source: ${KEY}
+        source: ./key.key
         target: /app/output/key.key
       - type: bind
-        source: ${PWD}/steganography.png
+        source: ./steganography.png
         target: /app/output/steganography.png
       - type: bind
-        source: ${PWD}
+        source: .
         target: /app/output
     entrypoint: ["python", "steganography.py", "decode"]
