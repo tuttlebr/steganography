@@ -59,6 +59,10 @@ steganography-decode-1  | INFO: 2021-12-28 16:04:48,834 b'hello, friend.__'
 steganography-decode-1 exited with code 0
 
 brandon@olympus:~/steganography$ docker-compose down
+[+] Running 3/3
+ ⠿ Container steganography-decode-1  Removed                                                                                                                   0.0s
+ ⠿ Container steganography-encode-1  Removed                                                                                                                   0.0s
+ ⠿ Network steganography_default     Removed                                                                                                                   0.2s
 ```
 
 Here is what the `encode()` function does:
