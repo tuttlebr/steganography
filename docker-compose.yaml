@@ -1,7 +1,7 @@
 services:
   encode:
     build:
-      context: app
+      context: .
       dockerfile: Dockerfile
     volumes:
       - type: bind
@@ -16,7 +16,7 @@ services:
 
   decode:
     build:
-      context: app
+      context: .
       dockerfile: Dockerfile
     volumes:
       - type: bind

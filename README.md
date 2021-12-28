@@ -38,13 +38,27 @@ Here is the resulting pixel values (you can check them on your own):
 
 ## Encoding an Image
 
-```bash
-docker-compose up --build encode
- ⠿ Container steganography-encode-1  Recreated                                                                                           0.1s
+```typescript
+brandon@olympus:~/steganography$ docker-compose build
+
+brandon@olympus:~/steganography$ docker-compose up encode
+[+] Running 1/0
+ ⠿ Container steganography-encode-1  Created                                                                                                                  0.0s
 Attaching to steganography-encode-1
-steganography-encode-1  | INFO: 2021-11-26 14:53:47,315 [*] Encrypting & Encoding data...
-steganography-encode-1  | INFO: 2021-11-26 14:53:47,358 [*] Maximum bytes to encode: 524505
+steganography-encode-1  | INFO: 2021-12-28 16:04:37,088 [*] Encrypting & Encoding data...
+steganography-encode-1  | INFO: 2021-12-28 16:04:37,116 [*] Maximum bytes to encode: 524505
 steganography-encode-1 exited with code 0
+
+brandon@olympus:~/steganography$ docker-compose up decode
+[+] Running 1/0
+ ⠿ Container steganography-decode-1  Created                                                                                                                  0.0s
+Attaching to steganography-decode-1
+steganography-decode-1  | INFO: 2021-12-28 16:04:45,116 [+] Decoding...
+steganography-decode-1  | INFO: 2021-12-28 16:04:48,794 b'BVEyrau2cabIfpM5XgOx8YiVnlFmjZlaroeW--f1GM8='
+steganography-decode-1  | INFO: 2021-12-28 16:04:48,834 b'hello, friend.__'
+steganography-decode-1 exited with code 0
+
+brandon@olympus:~/steganography$ docker-compose down
 ```
 
 Here is what the `encode()` function does:

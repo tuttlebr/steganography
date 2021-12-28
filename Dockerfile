@@ -12,4 +12,4 @@ RUN apt-get update \
     opencv-python \
     && mkdir output
 
-COPY steganography.py .
+COPY app/steganography.py .
