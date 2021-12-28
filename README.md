@@ -4,7 +4,7 @@ Steganography is the practice of hiding a file, message, image or video within a
 
 It is often used among hackers to hide secret messages or data within media files such as images, videos or audio files. Even though there are many legitimate uses for Steganography such as watermarking, malware programmers have also been found to use it to obscure the transmission of malicious code.
 
-In this tutorial, we gonna write a Python code to hide text messages using a technique called Least Significant Bit.
+In this tutorial, we're going to write a Python code to hide text messages using a technique called Least Significant Bit.
 
 Least Significant Bit (LSB) is a technique in which last bit of each pixel is modified and replaced with the data bit. This method only works on Lossless-compression images, which means that the files are stored in a compressed format, but that this compression does not result in the data being lost or modified, PNG, TIFF, and BMP as an example, are lossless-compression image file formats.
 
